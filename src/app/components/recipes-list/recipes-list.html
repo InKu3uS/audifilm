@@ -1,0 +1,18 @@
+<h1 class="flex justify-center text-4xl m-6 font-bold">Recipes list</h1>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-2">
+  @for (recipe of recipes; track $index) {
+  <div
+    class="flex justify-center flex-col text-center bg-gray-200 rounded-md py-2 shadow-md shadow-green-700"
+  >
+    <h2 class="text-xl font-semibold mb-2 truncate">{{ recipe.name }}</h2>
+    <p>{{ recipe.category }}</p>
+    <button
+      class="bg-green-800 hover:bg-green-900 text-white px-4 py-2 mt-3 mx-auto rounded inline-block"
+      routerLink="/recipe/{{ recipe.id }}"
+    >
+      View recipe
+    </button>
+  </div>
+  }
+</div>

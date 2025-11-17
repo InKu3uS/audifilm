@@ -1,0 +1,17 @@
+@if (recipe) {
+<h1 class="text-3xl font-bold mb-4">{{ recipe.name }}</h1>
+<p>{{ recipe.category }}</p>
+<p>{{ recipe.difficulty }}</p>
+<p>{{ recipe.duration | recipeTime }}</p>
+<p class="mb-4">
+  {{ recipe.ingredients.join(', ') }}
+</p>
+<ul class="list-disc list-inside mb-4">
+  @for (item of recipe.steps; track $index) {
+  <li>{{ item }}</li>
+  }
+</ul>
+
+} @else {
+<p class="text-center text-red-500 mt-4">Recipe not found</p>
+}
