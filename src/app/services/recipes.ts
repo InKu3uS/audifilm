@@ -1,51 +1,62 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { Recipe } from '../models/recipe';
-import { RECIPES } from '../mocks/recipes.mock';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
+const baseUrl = 'http://localhost:3000/recipes';
 @Injectable({
   providedIn: 'root',
 })
 export class RecipeService {
-  constructor() {}
+  constructor(private readonly http: HttpClient) {}
 
   // Get all recipes
   getAllRecipes(): Observable<Recipe[]> {
-    return of(RECIPES);
+    return this.http.get<Recipe[]>(baseUrl).pipe(catchError(this.handleError));
   }
 
   // Get Recipe by id
-  getRecipeById(id: number): Observable<Recipe | undefined> {
-    return of(RECIPES.find((r) => r.id === id));
+  getRecipeById(id: number): Observable<Recipe> {
+    return this.http.get<Recipe>(`${baseUrl}/${id}`).pipe(catchError(this.handleError));
   }
 
   // Add a new recipe
   addRecipe(recipe: Omit<Recipe, 'id'>): Observable<Recipe> {
-    const exists = RECIPES.some(
-      (r) => r.name.toLocaleLowerCase() === recipe.name.toLocaleLowerCase()
-    );
-    if (exists) {
-      return throwError(() => new Error('Recipe with this name already exists'));
-    }
-
-    const newId = Math.max(...RECIPES.map((r) => r.id), 0) + 1;
-
-    const newRecipe: Recipe = { id: newId, ...recipe };
-
-    RECIPES.push(newRecipe);
-
-    return of(newRecipe);
+    return this.http.post<Recipe>(baseUrl, recipe).pipe(catchError(this.handleError));
   }
 
   // Delete a recipe by id
   deleteRecipe(id: number): Observable<boolean> {
-    const index = RECIPES.findIndex((r) => r.id === id);
+    return this.http.delete<boolean>(`${baseUrl}/${id}`).pipe(catchError(this.handleError));
+  }
 
-    if (index === -1) {
-      return throwError(() => new Error('Recipe not found'));
+  updateRecipe(id: number, recipe: Recipe): Observable<Recipe> {
+    return this.http.put<Recipe>(`${baseUrl}/${id}`, recipe).pipe(catchError(this.handleError));
+  }
+
+  // Handle errors
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    let errorMessage = 'An unknown error occurred!';
+
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      switch (error.status) {
+        case 404:
+          errorMessage = 'Resource not found';
+          break;
+        case 400:
+          errorMessage = 'Bad request';
+          break;
+        case 500:
+          errorMessage = 'Internal server error';
+          break;
+        default:
+          errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      }
     }
 
-    RECIPES.splice(index, 1);
-    return of(true);
+    console.error('HTTP Error:', errorMessage);
+    return throwError(() => new Error(errorMessage));
   }
 }

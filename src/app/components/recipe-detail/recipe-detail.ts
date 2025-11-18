@@ -13,7 +13,6 @@ import { MatCardModule } from '@angular/material/card';
   selector: 'app-recipe-detail',
   imports: [CommonModule, RouterModule, RecipeTimePipe, MatButtonModule, MatCardModule],
   templateUrl: './recipe-detail.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RecipeDetail implements OnInit {
   private readonly service = inject(RecipeService);
@@ -22,14 +21,26 @@ export class RecipeDetail implements OnInit {
   constructor(private readonly router: Router) {}
 
   recipeId!: number;
-
   recipe: Recipe | undefined;
+  isLoading = true;
+  error: string | null = null;
 
   ngOnInit(): void {
     this.recipeId = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.service.getRecipeById(this.recipeId).subscribe((recipe) => {
-      this.recipe = recipe;
+    this.service.getRecipeById(this.recipeId).subscribe({
+      next: (recipe) => {
+        console.log('Recipe:', recipe);
+        this.recipe = recipe;
+        this.isLoading = false;
+        this.error = null;
+      },
+      error: (err) => {
+        console.log('Error:', err);
+        this.error = err.message;
+        this.isLoading = false;
+        this.recipe = undefined;
+      },
     });
   }
 
