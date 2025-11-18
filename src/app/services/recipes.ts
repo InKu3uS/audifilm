@@ -30,6 +30,7 @@ export class RecipeService {
     return this.http.delete<boolean>(`${baseUrl}/${id}`).pipe(catchError(this.handleError));
   }
 
+  // Update existing recipe
   updateRecipe(id: number, recipe: Recipe): Observable<Recipe> {
     return this.http.put<Recipe>(`${baseUrl}/${id}`, recipe).pipe(catchError(this.handleError));
   }

@@ -26,17 +26,36 @@ export class RecipesList implements OnInit {
 
   recipes: Recipe[] | undefined;
   filters = {
+    name: '',
     category: '',
     difficulty: '',
     duration: 0,
   };
+  isLoading = true;
+  error: string | null = null;
 
   ngOnInit(): void {
-    this.service.getAllRecipes().subscribe((recipes: Recipe[]) => {
-      this.recipes = recipes;
+    this.loadRecipes();
+  }
+
+  // Get recipes from json-server
+  loadRecipes(): void {
+    this.service.getAllRecipes().subscribe({
+      next: (recipes: Recipe[]) => {
+        this.recipes = recipes;
+        this.isLoading = false;
+        this.error = null;
+      },
+      error: (err) => {
+        this.error = err.message;
+        this.isLoading = false;
+        this.recipes = [];
+        console.error('Error loading recipes:', err);
+      },
     });
   }
 
+  // Filters for recipes
   get filteredRecipes() {
     return this.recipes
       ?.filter(
@@ -49,6 +68,11 @@ export class RecipesList implements OnInit {
           !this.filters.difficulty ||
           r.difficulty.toLocaleLowerCase() === this.filters.difficulty.toLocaleLowerCase()
       )
-      .filter((r) => !this.filters.duration || r.duration <= this.filters.duration);
+      .filter((r) => !this.filters.duration || r.duration <= this.filters.duration)
+      .filter(
+        (r) =>
+          !this.filters.name ||
+          r.name.toLocaleLowerCase().includes(this.filters.name.toLocaleLowerCase())
+      );
   }
 }

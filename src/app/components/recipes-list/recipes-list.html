@@ -1,7 +1,12 @@
 <h1 class="flex justify-center text-4xl m-6 font-bold">Recipes list</h1>
-
-<!-- Categories filter -->
 <div class="grid sm:flex gap-4 p-4 justify-center">
+  <!-- Name filter -->
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput type="text" [(ngModel)]="filters.name" />
+  </mat-form-field>
+
+  <!-- Categories filter -->
   <mat-form-field class="w-full sm:w-48">
     <mat-label>Select an option</mat-label>
     <mat-select [(ngModel)]="filters.category">
