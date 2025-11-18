@@ -22,9 +22,11 @@
     },
     {
       "id": "3",
-      "name": "Bolognese Lasagna",
+      "name": "Lasaña boloñesa",
+      "category": "main",
+      "difficulty": "medium",
+      "duration": 90,
       "imageUrl": "https://e7.pngegg.com/pngimages/47/388/png-clipart-lasagne-bolognese-sauce-italian-cuisine-pasta-food-kebab-with-rice-miscellaneous-recipe.png",
-      "category": "Main",
       "ingredients": [
         "Ground beef",
         "Lasagna pasta",
@@ -35,9 +37,7 @@
         "Prepare the sauce",
         "Layer the ingredients",
         "Bake for 45 minutes"
-      ],
-      "difficulty": "Hard",
-      "duration": 90
+      ]
     },
     {
       "id": "4",
@@ -157,26 +157,6 @@
       ],
       "difficulty": "Easy",
       "duration": 35
-    },
-    {
-      "id": "10",
-      "name": "Paella",
-      "imageUrl": "https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsb2ZmaWNlNF9waG90b19vZl9hX3BhZWxsYV9zcGFpbl9mb29kX2lzb2xhdGVkX29uX3doaXRlX185NzMyNjI1OC04MjQ5LTQ2MTAtOTQ1Ny02Zjg4YTZkNTZjNTQucG5n.png",
-      "category": "Main",
-      "ingredients": [
-        "Rice",
-        "Seafood",
-        "Bell pepper",
-        "Saffron",
-        "Broth"
-      ],
-      "steps": [
-        "Sauté ingredients",
-        "Add rice and broth",
-        "Cook until absorbed"
-      ],
-      "difficulty": "Hard",
-      "duration": 75
     }
   ]
 }

@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { RecipeService } from '../../services/recipes';
+import { AlertService } from '../../utils/alert.service';
 
 @Component({
   selector: 'create-recipe',
@@ -32,6 +33,7 @@ import { RecipeService } from '../../services/recipes';
 })
 export class CreateRecipe {
   private readonly service = inject(RecipeService);
+  private readonly alertService = inject(AlertService);
 
   categories = ['starter', 'main', 'dessert'];
   difficulties = ['easy', 'medium', 'hard'];
@@ -83,7 +85,7 @@ export class CreateRecipe {
   submit() {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
-      alert('Please fill in all fields');
+      this.alertService.info('Please fill in all fields');
       return;
     }
 
@@ -91,11 +93,10 @@ export class CreateRecipe {
 
     this.service.addRecipe(newRecipeData).subscribe({
       next: (recipe) => {
-        console.log('Recipe added: ', recipe);
         this.router.navigate(['']);
       },
       error: (err) => {
-        alert(err.message);
+        this.alertService.error(err.message);
       },
     });
   }

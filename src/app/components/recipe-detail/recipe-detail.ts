@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RecipeService } from '../../services/recipes';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -8,6 +8,7 @@ import { RecipeTimePipe } from '../../pipes/recipe-time.pipe';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { AlertService } from '../../utils/alert.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -16,6 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class RecipeDetail implements OnInit {
   private readonly service = inject(RecipeService);
+  private readonly alertService = inject(AlertService);
   private readonly route = inject(ActivatedRoute);
 
   constructor(private readonly router: Router) {}
@@ -30,7 +32,6 @@ export class RecipeDetail implements OnInit {
 
     this.service.getRecipeById(this.recipeId).subscribe({
       next: (recipe) => {
-        console.log('Recipe:', recipe);
         this.recipe = recipe;
         this.isLoading = false;
         this.error = null;
@@ -46,14 +47,20 @@ export class RecipeDetail implements OnInit {
 
   // Delete this recipe
   deleteRecipe() {
-    if (!confirm('Are you sure you want to delete this recipe?')) return;
+    this.alertService
+      .confirm(`Are you sure you want to delete ${this.recipe?.name} recipe`)
+      .then((confirmed) => {
+        if (!confirmed) return;
 
-    this.service.deleteRecipe(this.recipeId).subscribe({
-      next: () => {
-        alert(`Recipe ${this.recipe?.name} deleted`);
-        this.router.navigate(['']);
-      },
-      error: (err) => alert(err.message),
-    });
+        this.service.deleteRecipe(this.recipeId).subscribe({
+          next: () => {
+            this.alertService.success(`Recipe ${this.recipe?.name} deleted`);
+            this.router.navigate(['']);
+          },
+          error: (err) => {
+            this.alertService.error(err.message);
+          },
+        });
+      });
   }
 }

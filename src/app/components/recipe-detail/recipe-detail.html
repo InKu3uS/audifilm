@@ -46,7 +46,7 @@
       </div>
     </mat-card-content>
     <mat-card-actions class="mx-auto">
-      <button matButton>Update</button>
+      <button matButton routerLink="/update/{{ recipe.id }}">Update</button>
       <button matButton (click)="deleteRecipe()">Delete</button>
     </mat-card-actions>
   </mat-card>
