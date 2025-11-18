@@ -1,17 +1,57 @@
 @if (recipe) {
-<h1 class="text-3xl font-bold mb-4">{{ recipe.name }}</h1>
-<p>{{ recipe.category }}</p>
-<p>{{ recipe.difficulty }}</p>
-<p>{{ recipe.duration | recipeTime }}</p>
-<p class="mb-4">
-  {{ recipe.ingredients.join(', ') }}
-</p>
-<ul class="list-disc list-inside mb-4">
-  @for (item of recipe.steps; track $index) {
-  <li>{{ item }}</li>
-  }
-</ul>
+<div class="flex justify-center mt-10">
+  <mat-card class="example-card flex flex-col w-auto max-w-md mx-auto" appearance="outlined">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image">
+        <img src="{{ recipe.imageUrl }}" alt="{{ recipe.name }}" />
+      </div>
+      <mat-card-title>{{ recipe.name }}</mat-card-title>
+      <mat-card-subtitle>{{ recipe.category }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{ recipe.imageUrl }}" alt="{{ recipe.name }}" />
+    <mat-card-content>
+      <div class="mb-4 mt-2">
+        <p class="font-semibold">Difficulty:</p>
+        <p>{{ recipe.difficulty }}</p>
+      </div>
+
+      <div>
+        <p class="font-semibold">Duration:</p>
+        <p>{{ recipe.duration | recipeTime }}</p>
+      </div>
+
+      <hr class="flex justify-center text-gray-400 my-2" />
+
+      <div>
+        <p class="font-semibold">Ingredients:</p>
+        <p class="mb-4 text-center">
+          {{ recipe.ingredients.join(', ') }}
+        </p>
+      </div>
+
+      <hr class="flex justify-center text-gray-400 my-2" />
+
+      <div>
+        <p class="font-semibold">Steps:</p>
+        <ul class="list-disc list-inside mb-4">
+          @for (item of recipe.steps; track $index) {
+          <li>{{ item }}</li>
+          }
+        </ul>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="mx-auto">
+      <button matButton>Update</button>
+      <button matButton>Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
 
 } @else {
-<p class="text-center text-red-500 mt-4">Recipe not found</p>
+<p class="text-center text-3xl font-semibold mt-20">Ooops!</p>
+<p class="text-center text-red-500 text-xl font-semibold mt-2">Recipe not found</p>
 }
+
+<div class="flex justify-center px-4 mt-4">
+  <button mat-stroked-button color="primary" routerLink="">← Back</button>
+</div>

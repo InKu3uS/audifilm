@@ -4,6 +4,8 @@ export const RECIPES: Recipe[] = [
   {
     id: 1,
     name: 'Apple Pie',
+    imageUrl:
+      'https://w7.pngwing.com/pngs/477/706/png-transparent-cupcake-tart-apple-mold-western-apple-pie-baked-goods-food-baking.png',
     category: 'Dessert',
     ingredients: ['Apples', 'Flour', 'Eggs', 'Sugar', 'Cinnamon'],
     steps: ['Peel and slice apples', 'Prepare the dough', 'Bake for 40 minutes'],
@@ -13,6 +15,8 @@ export const RECIPES: Recipe[] = [
   {
     id: 2,
     name: 'Caesar Salad',
+    imageUrl:
+      'https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTAzL2ZyZWVpbWFnZXNjb21wYW55X3RvcF9kb3duX3Bob3RvX29mX2FfY2VzYXJfc2FsYWRfaXNvbGF0ZWRfb25fd18zYWMwODZhNS00MWZhLTQwNTctYmY4Zi0zNDQyMjZhMjg4MjEucG5n.png',
     category: 'Starter',
     ingredients: ['Lettuce', 'Chicken', 'Parmesan cheese', 'Bread', 'Caesar dressing'],
     steps: ['Cook the chicken', 'Toast the bread', 'Mix everything with the dressing'],
@@ -22,6 +26,8 @@ export const RECIPES: Recipe[] = [
   {
     id: 3,
     name: 'Bolognese Lasagna',
+    imageUrl:
+      'https://e7.pngegg.com/pngimages/47/388/png-clipart-lasagne-bolognese-sauce-italian-cuisine-pasta-food-kebab-with-rice-miscellaneous-recipe.png',
     category: 'Main',
     ingredients: ['Ground beef', 'Lasagna pasta', 'Béchamel sauce', 'Cheese'],
     steps: ['Prepare the sauce', 'Layer the ingredients', 'Bake for 45 minutes'],
@@ -31,6 +37,8 @@ export const RECIPES: Recipe[] = [
   {
     id: 4,
     name: 'Pancakes',
+    imageUrl:
+      'https://w7.pngwing.com/pngs/572/125/png-transparent-pancake-with-honey-syrup-juice-pancake-breakfast-buffet-waffle-pancakes-food-breakfast-recipe.png',
     category: 'Dessert',
     ingredients: ['Flour', 'Milk', 'Eggs', 'Sugar', 'Butter'],
     steps: ['Mix ingredients', 'Cook in a pan', 'Serve with syrup'],
@@ -40,6 +48,7 @@ export const RECIPES: Recipe[] = [
   {
     id: 5,
     name: 'Chicken Curry',
+    imageUrl: 'https://w7.pngwing.com/pngs/426/943/png-transparent-chicken-curry.png',
     category: 'Main',
     ingredients: ['Chicken', 'Curry', 'Onion', 'Coconut milk', 'Rice'],
     steps: ['Cook the chicken', 'Add curry and onion', 'Serve with rice'],
@@ -49,6 +58,8 @@ export const RECIPES: Recipe[] = [
   {
     id: 6,
     name: 'French Toast',
+    imageUrl:
+      'https://static.vecteezy.com/system/resources/thumbnails/055/065/190/small/warm-french-toast-with-a-pat-of-butter-on-top-png.png',
     category: 'Breakfast',
     ingredients: ['Bread', 'Eggs', 'Milk', 'Cinnamon', 'Sugar'],
     steps: ['Whisk eggs and milk', 'Soak the bread', 'Fry until golden'],
@@ -58,6 +69,8 @@ export const RECIPES: Recipe[] = [
   {
     id: 7,
     name: 'Vegetable Soup',
+    imageUrl:
+      'https://static.vecteezy.com/system/resources/previews/067/317/453/non_2x/delicious-vegetable-soup-in-a-black-bowl-isolated-on-transparent-background-free-png.png',
     category: 'Starter',
     ingredients: ['Carrot', 'Potato', 'Celery', 'Onion', 'Vegetable broth'],
     steps: ['Chop vegetables', 'Cook in broth', 'Serve hot'],
@@ -67,6 +80,8 @@ export const RECIPES: Recipe[] = [
   {
     id: 8,
     name: 'Mushroom Risotto',
+    imageUrl:
+      'https://png.pngtree.com/png-vector/20250801/ourlarge/pngtree-mushroom-risotto-with-creamy-parmesan-cheese-png-image_16961351.webp',
     category: 'Main',
     ingredients: ['Arborio rice', 'Mushrooms', 'Broth', 'Parmesan cheese'],
     steps: ['Sauté mushrooms', 'Cook rice with broth', 'Add cheese'],
@@ -76,6 +91,8 @@ export const RECIPES: Recipe[] = [
   {
     id: 9,
     name: 'Brownies',
+    imageUrl:
+      'https://img.freepik.com/psd-premium/deliciosos-brownies-apilados-cerca-postre_1479960-12.jpg?semt=ais_hybrid&w=740&q=80',
     category: 'Dessert',
     ingredients: ['Chocolate', 'Eggs', 'Sugar', 'Flour', 'Butter'],
     steps: ['Melt chocolate', 'Mix everything', 'Bake for 25 minutes'],
@@ -85,6 +102,8 @@ export const RECIPES: Recipe[] = [
   {
     id: 10,
     name: 'Paella',
+    imageUrl:
+      'https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsb2ZmaWNlNF9waG90b19vZl9hX3BhZWxsYV9zcGFpbl9mb29kX2lzb2xhdGVkX29uX3doaXRlX185NzMyNjI1OC04MjQ5LTQ2MTAtOTQ1Ny02Zjg4YTZkNTZjNTQucG5n.png',
     category: 'Main',
     ingredients: ['Rice', 'Seafood', 'Bell pepper', 'Saffron', 'Broth'],
     steps: ['Sauté ingredients', 'Add rice and broth', 'Cook until absorbed'],

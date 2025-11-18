@@ -1,13 +1,20 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { RecipeService } from '../../services/recipes';
 import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 import { Recipe } from '../../models/recipe';
 import { RecipeTimePipe } from '../../pipes/recipe-time.pipe';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+
 @Component({
   selector: 'app-recipe-detail',
-  imports: [RecipeTimePipe],
+  imports: [CommonModule, RouterModule, RecipeTimePipe, MatButtonModule, MatCardModule],
   templateUrl: './recipe-detail.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RecipeDetail implements OnInit {
   private readonly service = inject(RecipeService);

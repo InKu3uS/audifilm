@@ -37,6 +37,7 @@
   >
     <h2 class="text-xl font-semibold mb-2 truncate">{{ recipe.name }}</h2>
     <p>{{ recipe.category }}</p>
+    <img class="w-40 h-40" src="{{ recipe.imageUrl }}" alt="{{ recipe.name }}" />
     <button
       class="bg-green-800 hover:bg-green-900 text-white px-4 py-2 mt-3 mx-auto rounded inline-block"
       routerLink="/recipe/{{ recipe.id }}"
