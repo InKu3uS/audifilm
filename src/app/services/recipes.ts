@@ -9,14 +9,17 @@ import { RECIPES } from '../mocks/recipes.mock';
 export class RecipeService {
   constructor() {}
 
+  // Get all recipes
   getAllRecipes(): Observable<Recipe[]> {
     return of(RECIPES);
   }
 
+  // Get Recipe by id
   getRecipeById(id: number): Observable<Recipe | undefined> {
     return of(RECIPES.find((r) => r.id === id));
   }
 
+  // Add a new recipe
   addRecipe(recipe: Omit<Recipe, 'id'>): Observable<Recipe> {
     const exists = RECIPES.some(
       (r) => r.name.toLocaleLowerCase() === recipe.name.toLocaleLowerCase()
@@ -32,5 +35,17 @@ export class RecipeService {
     RECIPES.push(newRecipe);
 
     return of(newRecipe);
+  }
+
+  // Delete a recipe by id
+  deleteRecipe(id: number): Observable<boolean> {
+    const index = RECIPES.findIndex((r) => r.id === id);
+
+    if (index === -1) {
+      return throwError(() => new Error('Recipe not found'));
+    }
+
+    RECIPES.splice(index, 1);
+    return of(true);
   }
 }

@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { RecipeService } from '../../services/recipes';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { Recipe } from '../../models/recipe';
@@ -19,13 +19,30 @@ export class RecipeDetail implements OnInit {
   private readonly service = inject(RecipeService);
   private readonly route = inject(ActivatedRoute);
 
+  constructor(private readonly router: Router) {}
+
+  recipeId!: number;
+
   recipe: Recipe | undefined;
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.recipeId = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.service.getRecipeById(id).subscribe((recipe) => {
+    this.service.getRecipeById(this.recipeId).subscribe((recipe) => {
       this.recipe = recipe;
+    });
+  }
+
+  // Delete this recipe
+  deleteRecipe() {
+    if (!confirm('Are you sure you want to delete this recipe?')) return;
+
+    this.service.deleteRecipe(this.recipeId).subscribe({
+      next: () => {
+        alert(`Recipe ${this.recipe?.name} deleted`);
+        this.router.navigate(['']);
+      },
+      error: (err) => alert(err.message),
     });
   }
 }
