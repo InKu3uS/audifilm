@@ -3,8 +3,10 @@
     {
       "id": "2",
       "name": "Caesar Salad",
+      "category": "main",
+      "difficulty": "easy",
+      "duration": 15,
       "imageUrl": "https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTAzL2ZyZWVpbWFnZXNjb21wYW55X3RvcF9kb3duX3Bob3RvX29mX2FfY2VzYXJfc2FsYWRfaXNvbGF0ZWRfb25fd18zYWMwODZhNS00MWZhLTQwNTctYmY4Zi0zNDQyMjZhMjg4MjEucG5n.png",
-      "category": "Starter",
       "ingredients": [
         "Lettuce",
         "Chicken",
@@ -16,9 +18,7 @@
         "Cook the chicken",
         "Toast the bread",
         "Mix everything with the dressing"
-      ],
-      "difficulty": "Easy",
-      "duration": 20
+      ]
     },
     {
       "id": "3",
@@ -157,6 +157,394 @@
       ],
       "difficulty": "Easy",
       "duration": 35
+    },
+    {
+      "id": "10",
+      "name": "Spaghetti Carbonara",
+      "category": "Main",
+      "difficulty": "Medium",
+      "duration": 25,
+      "imageUrl": "https://img.freepik.com/psd-gratis/delicioso-plato-pasta-langosta-linguina-crema_191095-86356.jpg?semt=ais_hybrid&w=740&q=80",
+      "ingredients": [
+        "Spaghetti",
+        "Eggs",
+        "Parmesan",
+        "Pancetta",
+        "Black pepper"
+      ],
+      "steps": [
+        "Cook spaghetti",
+        "Fry pancetta",
+        "Mix eggs with cheese",
+        "Combine everything"
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Greek Salad",
+      "category": "Starter",
+      "difficulty": "Easy",
+      "duration": 10,
+      "imageUrl": "https://e7.pngegg.com/pngimages/166/140/png-clipart-greek-salad-caesar-salad-chicken-salad-greek-cuisine-spinach-salad-greek-salad-leaf-vegetable-food.png",
+      "ingredients": [
+        "Tomato",
+        "Cucumber",
+        "Feta cheese",
+        "Olives",
+        "Olive oil"
+      ],
+      "steps": [
+        "Chop vegetables",
+        "Add feta",
+        "Season with olive oil"
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Beef Tacos",
+      "category": "Main",
+      "difficulty": "Easy",
+      "duration": 20,
+      "imageUrl": "https://img.freepik.com/free-psd/delicious-beef-tacos-with-fresh-cilantro-pico-de-gallo_632498-26302.jpg?semt=ais_hybrid&w=740&q=80",
+      "ingredients": [
+        "Tortillas",
+        "Ground beef",
+        "Cheese",
+        "Lettuce",
+        "Salsa"
+      ],
+      "steps": [
+        "Cook beef",
+        "Fill tortillas",
+        "Add toppings"
+      ]
+    },
+    {
+      "id": "13",
+      "name": "Avocado Toast",
+      "category": "Breakfast",
+      "difficulty": "Easy",
+      "duration": 5,
+      "imageUrl": "https://png.pngtree.com/png-vector/20240719/ourlarge/pngtree-avocado-toast-with-salmon-and-egg-png-image_13149960.png",
+      "ingredients": [
+        "Bread",
+        "Avocado",
+        "Salt",
+        "Pepper",
+        "Egg"
+      ],
+      "steps": [
+        "Toast bread",
+        "Mash avocado",
+        "Top with egg"
+      ]
+    },
+    {
+      "id": "14",
+      "name": "Chocolate Chip Cookies",
+      "category": "Dessert",
+      "difficulty": "Easy",
+      "duration": 25,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJI2NysK03HEg7rEkMH8fXuFmQr-qeIz0NXg&s",
+      "ingredients": [
+        "Flour",
+        "Chocolate chips",
+        "Butter",
+        "Sugar",
+        "Eggs"
+      ],
+      "steps": [
+        "Mix ingredients",
+        "Shape cookies",
+        "Bake"
+      ]
+    },
+    {
+      "id": "15",
+      "name": "Sushi Rolls",
+      "category": "Main",
+      "difficulty": "Hard",
+      "duration": 50,
+      "imageUrl": "https://png.pngtree.com/png-vector/20250512/ourlarge/pngtree-group-of-various-sushi-rolls-png-image_16129970.png",
+      "ingredients": [
+        "Rice",
+        "Nori",
+        "Salmon",
+        "Avocado"
+      ],
+      "steps": [
+        "Prepare rice",
+        "Place on nori",
+        "Add fillings",
+        "Roll and cut"
+      ]
+    },
+    {
+      "id": "16",
+      "name": "Blueberry Muffins",
+      "category": "Dessert",
+      "difficulty": "Easy",
+      "duration": 30,
+      "imageUrl": "https://png.pngtree.com/png-vector/20240728/ourlarge/pngtree-classic-blueberry-muffins-isolated-on-transparent-background-png-image_13272266.png",
+      "ingredients": [
+        "Flour",
+        "Blueberries",
+        "Milk",
+        "Eggs",
+        "Sugar"
+      ],
+      "steps": [
+        "Mix batter",
+        "Add blueberries",
+        "Bake"
+      ]
+    },
+    {
+      "id": "17",
+      "name": "Guacamole",
+      "category": "Starter",
+      "difficulty": "Easy",
+      "duration": 10,
+      "imageUrl": "https://img.freepik.com/psd-premium/delicioso-guacamole-papas-fritas-tazon_84443-30378.jpg?semt=ais_hybrid&w=740&q=80",
+      "ingredients": [
+        "Avocado",
+        "Tomato",
+        "Onion",
+        "Lime",
+        "Cilantro"
+      ],
+      "steps": [
+        "Mash avocado",
+        "Add chopped veggies",
+        "Season"
+      ]
+    },
+    {
+      "id": "18",
+      "name": "Chicken Alfredo",
+      "category": "Main",
+      "difficulty": "Medium",
+      "duration": 30,
+      "imageUrl": "https://i.pinimg.com/564x/88/fd/46/88fd46bea22b3e434276370991643f1a.jpg",
+      "ingredients": [
+        "Chicken",
+        "Pasta",
+        "Cream",
+        "Parmesan",
+        "Garlic"
+      ],
+      "steps": [
+        "Cook pasta",
+        "Prepare sauce",
+        "Mix with chicken"
+      ]
+    },
+    {
+      "id": "19",
+      "name": "Tomato Soup",
+      "category": "Starter",
+      "difficulty": "Easy",
+      "duration": 25,
+      "imageUrl": "https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTAyL21vdGFybzdfYm93bF9vZl90b21hdG9fc291cF9pc29sYXRlZF9vbl9hX3doaXRlX2JhY2tncm91bmRfZDYwMTVhYzgtMDQzOS00NWEzLTk4YzMtZmY3YjU0ZjY2MDMwLnBuZw.png",
+      "ingredients": [
+        "Tomatoes",
+        "Onion",
+        "Garlic",
+        "Cream"
+      ],
+      "steps": [
+        "Cook tomatoes",
+        "Blend",
+        "Serve hot"
+      ]
+    },
+    {
+      "id": "20",
+      "name": "Pepperoni Pizza",
+      "category": "Main",
+      "difficulty": "Medium",
+      "duration": 40,
+      "imageUrl": "https://img.freepik.com/psd-gratis/deliciosa-pizza-pepperoni-es-delicia-culinaria_632498-24206.jpg?semt=ais_hybrid&w=740&q=80",
+      "ingredients": [
+        "Pizza dough",
+        "Tomato sauce",
+        "Cheese",
+        "Pepperoni"
+      ],
+      "steps": [
+        "Prepare dough",
+        "Add sauce and cheese",
+        "Bake"
+      ]
+    },
+    {
+      "id": "21",
+      "name": "Fruit Smoothie",
+      "category": "Breakfast",
+      "difficulty": "Easy",
+      "duration": 5,
+      "imageUrl": "https://png.pngtree.com/png-vector/20241217/ourlarge/pngtree-refreshing-fruit-smoothie-with-orange-garnish-png-image_14808174.png",
+      "ingredients": [
+        "Banana",
+        "Strawberries",
+        "Milk",
+        "Honey"
+      ],
+      "steps": [
+        "Blend everything"
+      ]
+    },
+    {
+      "id": "22",
+      "name": "Garlic Bread",
+      "category": "Starter",
+      "difficulty": "Easy",
+      "duration": 12,
+      "imageUrl": "https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8xMF9waG90b19vZl9nYXJsaWNfYnJlYWRfaXNvbGF0ZWRfb25fd2hpdGVfYmFja185ODUyYTAxNC0yN2NhLTQwYjctYmQxOC01NjUxZDg0MjE5NjUucG5n.png",
+      "ingredients": [
+        "Bread",
+        "Butter",
+        "Garlic",
+        "Parsley"
+      ],
+      "steps": [
+        "Mix butter with garlic",
+        "Spread on bread",
+        "Bake"
+      ]
+    },
+    {
+      "id": "23",
+      "name": "Chicken Nuggets",
+      "category": "Main",
+      "difficulty": "Easy",
+      "duration": 20,
+      "imageUrl": "https://e7.pngegg.com/pngimages/142/28/png-clipart-chicken-nuggets-and-dips-yellow-leaves-thumbnail.png",
+      "ingredients": [
+        "Chicken",
+        "Breadcrumbs",
+        "Eggs"
+      ],
+      "steps": [
+        "Bread chicken",
+        "Fry",
+        "Serve"
+      ]
+    },
+    {
+      "id": "24",
+      "name": "Waffles",
+      "category": "Breakfast",
+      "difficulty": "Easy",
+      "duration": 15,
+      "imageUrl": "https://e7.pngegg.com/pngimages/872/915/png-clipart-waffle-waffle-thumbnail.png",
+      "ingredients": [
+        "Flour",
+        "Milk",
+        "Eggs",
+        "Butter"
+      ],
+      "steps": [
+        "Mix batter",
+        "Cook in waffle iron"
+      ]
+    },
+    {
+      "id": "25",
+      "name": "Pesto Pasta",
+      "category": "Main",
+      "difficulty": "Easy",
+      "duration": 20,
+      "imageUrl": "https://e7.pngegg.com/pngimages/812/96/png-clipart-pesto-pasta-shahi-paneer-tu-punto-de-encuentro-italian-cuisine-leaf-vegetable-food.png",
+      "ingredients": [
+        "Pasta",
+        "Basil",
+        "Garlic",
+        "Parmesan",
+        "Pine nuts"
+      ],
+      "steps": [
+        "Blend pesto",
+        "Cook pasta",
+        "Mix together"
+      ]
+    },
+    {
+      "id": "26",
+      "name": "Apple Crumble",
+      "category": "Dessert",
+      "difficulty": "Medium",
+      "duration": 40,
+      "imageUrl": "https://png.pngtree.com/png-vector/20250803/ourlarge/pngtree-apple-crumble-food-isolated-on-transparent-background-png-image_16825669.webp",
+      "ingredients": [
+        "Apples",
+        "Flour",
+        "Sugar",
+        "Butter"
+      ],
+      "steps": [
+        "Cut apples",
+        "Prepare crumble",
+        "Bake"
+      ]
+    },
+    {
+      "id": "27",
+      "name": "Ramen",
+      "category": "Main",
+      "difficulty": "Hard",
+      "duration": 60,
+      "imageUrl": "https://i.pinimg.com/736x/5e/10/9a/5e109a435b4233501664dfd348af7067.jpg",
+      "ingredients": [
+        "Broth",
+        "Noodles",
+        "Egg",
+        "Pork",
+        "Vegetables"
+      ],
+      "steps": [
+        "Prepare broth",
+        "Cook noodles",
+        "Assemble bowl"
+      ]
+    },
+    {
+      "id": "28",
+      "name": "Tiramisu",
+      "category": "Dessert",
+      "difficulty": "Medium",
+      "duration": 30,
+      "imageUrl": "https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEwL3Jhd3BpeGVsb2ZmaWNlNl9yZWFsX3Bob3RvX29mX2FfcGxhdGVfb2ZfdGlyYW1pc3VfY2FrZV9pc29sYXRlZF9kN2NkYjcxYi00ZTI5LTQzM2UtOTA1OS1kN2ViOTA2ZjA3MWYucG5n.png",
+      "ingredients": [
+        "Mascarpone",
+        "Coffee",
+        "Sugar",
+        "Ladyfingers"
+      ],
+      "steps": [
+        "Prepare cream",
+        "Dip biscuits in coffee",
+        "Layer and chill"
+      ]
+    },
+    {
+      "id": "29",
+      "name": "Falafel",
+      "category": "Main",
+      "difficulty": "Medium",
+      "duration": 35,
+      "imageUrl": "https://pngimg.com/uploads/falafel/falafel_PNG55.png",
+      "ingredients": [
+        "Chickpeas",
+        "Garlic",
+        "Parsley",
+        "Spices"
+      ],
+      "steps": [
+        "Blend chickpeas",
+        "Shape balls",
+        "Fry"
+      ]
     }
   ]
 }
