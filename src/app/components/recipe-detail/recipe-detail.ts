@@ -1,8 +1,7 @@
 import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { RecipeService } from '../../services/recipes';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { Recipe } from '../../models/recipe';
 import { RecipeTimePipe } from '../../pipes/recipe-time.pipe';

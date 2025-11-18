@@ -1,0 +1,110 @@
+<div class="max-w-3xl p-4 flex flex-col mx-auto mt-6">
+  <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-6 text-center">Create New Recipe</h2>
+
+  <form
+    [formGroup]="form"
+    (ngSubmit)="submit()"
+    class="flex flex-col gap-4 bg-gray-100 p-3 rounded-2xl"
+  >
+    <!-- Name Input -->
+    <mat-form-field appearance="fill">
+      <mat-label class="text-sm md:text-lg">Name</mat-label>
+      <input matInput formControlName="name" required />
+    </mat-form-field>
+
+    <!-- Image URL Input -->
+    <mat-form-field appearance="fill">
+      <mat-label class="text-sm md:text-lg">Image URL</mat-label>
+      <input matInput formControlName="imageUrl" required />
+    </mat-form-field>
+
+    <!-- Category Input -->
+    <mat-form-field appearance="fill">
+      <mat-label class="text-sm md:text-lg">Category</mat-label>
+      <mat-select formControlName="category" required>
+        @for(item of categories; track $index) {
+        <mat-option value="{{ item }}">{{ item.toUpperCase() }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Difficulty Input -->
+    <mat-form-field appearance="fill">
+      <mat-label class="text-sm md:text-lg">Difficulty</mat-label>
+      <mat-select formControlName="difficulty" required>
+        @for(item of difficulties; track $index) {
+        <mat-option value="{{ item }}">{{ item.toUpperCase() }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Duration Input -->
+    <mat-form-field appearance="fill">
+      <mat-label class="text-sm md:text-lg">Duration (min)</mat-label>
+      <input matInput type="number" formControlName="duration" required />
+    </mat-form-field>
+
+    <!-- Ingredients Input -->
+    <div>
+      <span class="font-semibold text-sm md:text-lg mb-2 block text-center">Ingredients</span>
+      <div formArrayName="ingredients" class="flex flex-col gap-2 mx-auto w-[50%]">
+        <div *ngFor="let ing of ingredients.controls; let i = index" class="flex gap-2">
+          <input matInput [formControlName]="i" placeholder="Ingredient" class="flex-1" />
+          <button
+            type="button"
+            (click)="removeIngredient(i)"
+            class="bg-red-500 text-white px-2 rounded-full"
+          >
+            Remove
+          </button>
+        </div>
+      </div>
+      <div class="flex justify-center my-4">
+        <button
+          type="button"
+          (click)="addIngredient()"
+          class="bg-green-600 text-white px-4 py-2 mt-2 hover:bg-green-700 rounded-full"
+        >
+          Add Ingredient
+        </button>
+      </div>
+    </div>
+
+    <!-- Steps Input -->
+    <div>
+      <span class="font-semibold text-sm md:text-lg mb-2 block text-center">Steps</span>
+      <div formArrayName="steps" class="flex flex-col gap-2 mx-auto w-[50%]">
+        <div *ngFor="let step of steps.controls; let i = index" class="flex justify-center gap-2">
+          <input matInput [formControlName]="i" placeholder="Step" class="flex-1" />
+          <button
+            type="button"
+            (click)="removeStep(i)"
+            class="bg-red-500 text-white px-2 rounded-full"
+          >
+            Remove
+          </button>
+        </div>
+      </div>
+      <div class="flex justify-center my-4">
+        <button
+          type="button"
+          (click)="addStep()"
+          class="bg-green-600 text-white px-4 py-2 rounded-full mt-2 hover:bg-green-700"
+        >
+          Add Step
+        </button>
+      </div>
+    </div>
+
+    <!-- Back and Submit Buttons -->
+    <div class="flex justify-center w-full mt-4 gap-2">
+      <button mat-stroked-button color="primary" routerLink="">← Back</button>
+      <button
+        type="submit"
+        class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-all"
+      >
+        Create Recipe
+      </button>
+    </div>
+  </form>
+</div>
