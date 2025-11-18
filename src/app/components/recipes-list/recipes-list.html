@@ -1,43 +1,43 @@
-<h1 class="flex justify-center text-4xl m-6 font-bold">Recipes list</h1>
+<h1 class="flex justify-center text-4xl m-6 font-bold">{{ 'recipes_list.title' | i18n }}</h1>
 <div class="grid sm:flex gap-4 p-4 justify-center">
   <!-- Name filter -->
   <mat-form-field>
-    <mat-label>Name</mat-label>
+    <mat-label>{{ 'recipes_list.name' | i18n }}</mat-label>
     <input matInput type="text" [(ngModel)]="filters.name" />
   </mat-form-field>
 
   <!-- Categories filter -->
   <mat-form-field class="w-full sm:w-48">
-    <mat-label>Select an option</mat-label>
+    <mat-label>{{ 'recipes_list.select_option' | i18n }}</mat-label>
     <mat-select [(ngModel)]="filters.category">
-      <mat-option value="">All categories</mat-option>
-      <mat-option value="starter">Starters</mat-option>
-      <mat-option value="main">Main dishes</mat-option>
-      <mat-option value="dessert">Desserts</mat-option>
+      <mat-option value="">{{ 'recipes_list.all_categories' | i18n }}</mat-option>
+      <mat-option value="starter">{{ 'recipes_list.starters' | i18n }}</mat-option>
+      <mat-option value="main">{{ 'recipes_list.main_dishes' | i18n }}</mat-option>
+      <mat-option value="dessert">{{ 'recipes_list.desserts' | i18n }}</mat-option>
     </mat-select>
   </mat-form-field>
 
   <!-- Difficulties filter -->
   <mat-form-field>
-    <mat-label>All difficulties</mat-label>
+    <mat-label>{{ 'recipes_list.difficulty' | i18n }}</mat-label>
     <mat-select [(ngModel)]="filters.difficulty">
-      <mat-option value="">All difficulties</mat-option>
-      <mat-option value="easy">Easy</mat-option>
-      <mat-option value="medium">Medium</mat-option>
-      <mat-option value="hard">Hard</mat-option>
+      <mat-option value="">{{ 'recipes_list.all_difficulties' | i18n }}</mat-option>
+      <mat-option value="easy">{{ 'recipes_list.easy' | i18n }}</mat-option>
+      <mat-option value="medium">{{ 'recipes_list.medium' | i18n }}</mat-option>
+      <mat-option value="hard">{{ 'recipes_list.hard' | i18n }}</mat-option>
     </mat-select>
   </mat-form-field>
 
   <!-- Duration Filter -->
   <mat-form-field>
-    <mat-label>Duration</mat-label>
+    <mat-label>{{ 'recipes_list.duration' | i18n }}</mat-label>
     <input matInput type="number" [(ngModel)]="filters.duration" />
   </mat-form-field>
 </div>
 
 <div class="flex flex-wrap justify-center gap-4 p-2">
   @if(recipes?.length == 0){
-  <p class="text-2xl font-bold">There is no recipes in list</p>
+  <p class="text-2xl font-bold">{{ 'recipes_list.no_recipes' | i18n }}</p>
   } @for (recipe of filteredRecipes; track $index) {
   <div
     class="flex justify-center flex-col text-center bg-gray-200 rounded-md shadow-md py-10 px-10 md:px-15 lg:px-20"
@@ -48,7 +48,7 @@
       class="bg-green-800 hover:bg-green-900 text-white px-4 py-2 mt-3 mx-auto rounded-full inline-block"
       routerLink="/recipe/{{ recipe.id }}"
     >
-      View recipe
+      {{ 'recipes_list.button_view' | i18n }}
     </button>
   </div>
   }

@@ -1,0 +1,24 @@
+{
+  "header": {
+    "title": "Audifilm Rezepte",
+    "new_recipe": "Neues Rezept",
+    "select_language": "Sprache wählen"
+  },
+  "recipes_list": {
+    "title": "Rezeptliste",
+    "name": "Name",
+    "select_option": "Wähle eine Option",
+    "all_categories": "Alle Kategorien",
+    "starters": "Vorspeisen",
+    "main_dishes": "Hauptgerichte",
+    "desserts": "Nachspeisen",
+    "difficulty": "Schwierigkeit",
+    "all_difficulties": "Alle Schwierigkeitsgrade",
+    "easy": "Einfach",
+    "medium": "Mittel",
+    "hard": "Schwierig",
+    "duration": "Dauer",
+    "no_recipes": "Keine Rezepte in der Liste",
+    "button_view": "Rezept ansehen"
+  }
+}

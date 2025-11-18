@@ -1,0 +1,24 @@
+{
+  "header": {
+    "title": "Recetas Audifilm",
+    "new_recipe": "Nueva Receta",
+    "select_language": "Seleccionar idioma"
+  },
+  "recipes_list": {
+    "title": "Lista de recetas",
+    "name": "Nombre",
+    "select_option": "Elije una opcion",
+    "all_categories": "Todas las categorías",
+    "starters": "Entrantes",
+    "main_dishes": "Platos principales",
+    "desserts": "Postres",
+    "difficulty": "Dificultad",
+    "all_difficulties": "Todas las dificultades",
+    "easy": "Facil",
+    "medium": "Media",
+    "hard": "Dificil",
+    "duration": "Duración",
+    "no_recipes": "No hay recetas en la lista",
+    "button_view": "Ver receta"
+  }
+}

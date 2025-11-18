@@ -240,26 +240,6 @@
       ]
     },
     {
-      "id": "14",
-      "name": "Chocolate Chip Cookies",
-      "category": "Dessert",
-      "difficulty": "Easy",
-      "duration": 25,
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJI2NysK03HEg7rEkMH8fXuFmQr-qeIz0NXg&s",
-      "ingredients": [
-        "Flour",
-        "Chocolate chips",
-        "Butter",
-        "Sugar",
-        "Eggs"
-      ],
-      "steps": [
-        "Mix ingredients",
-        "Shape cookies",
-        "Bake"
-      ]
-    },
-    {
       "id": "15",
       "name": "Sushi Rolls",
       "category": "Main",

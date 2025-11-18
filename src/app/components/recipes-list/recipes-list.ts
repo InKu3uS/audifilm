@@ -5,6 +5,9 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+import { I18nService } from '../../i18n/i18n.service';
+import { I18nPipe } from '../../i18n/i18n.pipe';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -19,10 +22,12 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatSelectModule,
     MatInputModule,
+    I18nPipe,
   ],
 })
 export class RecipesList implements OnInit {
   private readonly service = inject(RecipeService);
+  public readonly i18n = inject(I18nService);
 
   recipes: Recipe[] | undefined;
   filters = {

@@ -1,12 +1,23 @@
 <div class="flex items-center justify-between bg-gray-100 py-4 px-4">
   <!-- Título a la izquierda -->
-  <h3 class="text-2xl font-semibold">Audifilm Recipes</h3>
+  <h3 class="text-2xl font-semibold">{{ 'header.title' | i18n }}</h3>
 
   <!-- Botón a la derecha -->
-  <button
-    class="hover:bg-gray-300 cursor-pointer hover:scale-105 p-2 rounded-full transition-all duration-100"
-    routerLink="/new"
-  >
-    New Recipe
-  </button>
+  <div class="flex gap-6">
+    <button
+      class="hover:bg-gray-300 cursor-pointer hover:scale-105 p-2 rounded-full transition-all duration-100"
+      routerLink="/new"
+    >
+      {{ 'header.new_recipe' | i18n }}
+    </button>
+    <select
+      class="border border-gray-300 rounded-full px-2 py-1 bg-gray-200 hover:scale-105 hover:bg-gray-300 transition-all duration-200"
+      (change)="changeLanguage($event)"
+    >
+      <option value="" disabled selected>{{ 'header.select_language' | i18n }}</option>
+      <option value="es">🇪🇸 Spanish</option>
+      <option value="en">🇬🇧 English</option>
+      <option value="de">🇩🇪 Deutsch</option>
+    </select>
+  </div>
 </div>

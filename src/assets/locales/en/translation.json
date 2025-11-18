@@ -1,0 +1,24 @@
+{
+  "header": {
+    "title": "Audifilm Recipes",
+    "new_recipe": "New Recipe",
+    "select_language": "Select language"
+  },
+  "recipes_list": {
+    "title": "Recipe List",
+    "name": "Name",
+    "select_option": "Select an option",
+    "all_categories": "All categories",
+    "starters": "Starters",
+    "main_dishes": "Main dishes",
+    "desserts": "Desserts",
+    "difficulty": "Dificulty",
+    "all_difficulties": "All difficulties",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard",
+    "duration": "Duration",
+    "no_recipes": "No recipes in the list",
+    "button_view": "View recipe"
+  }
+}
