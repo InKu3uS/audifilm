@@ -20,13 +20,13 @@ export class RecipeDetail implements OnInit {
 
   constructor(private readonly router: Router) {}
 
-  recipeId!: number;
+  recipeId!: string;
   recipe: Recipe | undefined;
   isLoading = true;
   error: string | null = null;
 
   ngOnInit(): void {
-    this.recipeId = Number(this.route.snapshot.paramMap.get('id'));
+    this.recipeId = this.route.snapshot.paramMap.get('id') ?? '';
 
     this.service.getRecipeById(this.recipeId).subscribe({
       next: (recipe) => {
