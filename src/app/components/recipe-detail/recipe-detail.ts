@@ -2,14 +2,17 @@ import { Component, inject, OnInit } from '@angular/core';
 import { RecipeService } from '../../services/recipes';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
 import { Recipe } from '../../models/recipe';
 import { RecipeTimePipe } from '../../pipes/recipe-time.pipe';
 
+//Angular Material imports
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+
+//SweetAlert2 service import
 import { AlertService } from '../../utils/alert.service';
 
+//i18n imports
 import { I18nService } from '../../i18n/i18n.service';
 import { I18nPipe } from '../../i18n/i18n.pipe';
 
@@ -68,10 +71,12 @@ export class RecipeDetail implements OnInit {
       });
   }
 
+  // Get the translation of the category name received as parameter
   getCategoryTranslation(key: string): string {
     return this.i18n.t(`recipe.category.${key}`) as string;
   }
 
+  // Get the translation of the difficulty name received as parameter
   getDifficultyTranslation(key: string): string {
     return this.i18n.t(`recipe.difficulties.${key}`) as string;
   }

@@ -8,21 +8,23 @@ import { Subscription } from 'rxjs';
   pure: false,
 })
 export class I18nPipe implements PipeTransform, OnDestroy {
-  private sub: Subscription;
+  private readonly sub: Subscription;
   private lastKey: string | null = null;
   private lastParams: any = null;
-  // admitir cualquier cosa porque i18next puede devolver objetos/arrays
+  //Allow anything because i18next can return objects/arrays
   private translated: string | object | null = null;
 
-  constructor(private i18n: I18nService, private cdr: ChangeDetectorRef) {
+  constructor(private readonly i18n: I18nService, private readonly cdr: ChangeDetectorRef) {
+    //Subscribe to language changes to invalidate cache
     this.sub = this.i18n.lang$.subscribe(() => {
       this.translated = null;
       this.cdr.markForCheck();
     });
   }
 
+  //Translate a given key using I18nService
   transform(key: string, params?: any): string {
-    // cache simple
+    //Simple cache: return cached translation if key and params did not change
     if (
       this.translated !== null &&
       key === this.lastKey &&
@@ -33,15 +35,19 @@ export class I18nPipe implements PipeTransform, OnDestroy {
 
     this.lastKey = key;
     this.lastParams = params;
-    const res = this.i18n.t(key, params) as unknown; // i18next puede devolver string|object|...
+    //I18next can return string|object|...
+    const res = this.i18n.t(key, params) as unknown;
     this.translated = res as any;
     return this.toString(res);
   }
 
+  //Converts any value returned by i18next into a string
   private toString(value: unknown): string {
+    //Empty string if value is null
     if (value == null) return '';
     if (typeof value === 'string') return value;
-    // si es array, intentar join si son strings
+
+    // Convert array elements to strings and join with commas; fallback to JSON.stringify on error
     if (Array.isArray(value)) {
       try {
         return value.map((v) => (typeof v === 'string' ? v : JSON.stringify(v))).join(', ');
@@ -49,15 +55,15 @@ export class I18nPipe implements PipeTransform, OnDestroy {
         return JSON.stringify(value);
       }
     }
-    // si es objeto, intentar acceder a propiedades comunes o serializar
+    // Try to stringify the object; fallback to String() if it fails
     try {
-      // si el objeto tiene una forma "legible" (por ejemplo, { count: "..." }) intentar stringify
       return JSON.stringify(value);
     } catch {
       return String(value);
     }
   }
 
+  //Cancel subscription
   ngOnDestroy() {
     this.sub.unsubscribe();
   }

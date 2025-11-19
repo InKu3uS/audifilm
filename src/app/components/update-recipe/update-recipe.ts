@@ -14,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { AlertService } from '../../utils/alert.service';
 
+//i18n imports
 import { I18nService } from '../../i18n/i18n.service';
 import { I18nPipe } from '../../i18n/i18n.pipe';
 
@@ -113,11 +114,15 @@ export class UpdateRecipe implements OnInit {
         imageUrl: formValue.imageUrl,
         ingredients: formValue.ingredients
           .split(',')
+          //Clear blank spaces
           .map((item: string) => item.trim())
+          //Clear falsy content
           .filter(Boolean),
         steps: formValue.steps
           .split(',')
+          //Clear blank spaces
           .map((step: string) => step.trim())
+          //Clear falsy content
           .filter(Boolean),
       };
 

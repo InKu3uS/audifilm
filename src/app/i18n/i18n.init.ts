@@ -8,6 +8,7 @@ export function initI18Next(): Promise<void> {
     .use(HttpBackend)
     .use(LanguageDetector)
     .init({
+      //Language english selected by default
       fallbackLng: 'en',
       debug: false,
       ns: ['translation'],
@@ -23,6 +24,7 @@ export function initI18Next(): Promise<void> {
       load: 'languageOnly',
     })
     .then(() => {
+      //If a language is saved in localStorage, switch to i
       const savedLang = localStorage.getItem('lang') || i18next.language || 'en';
       i18next.changeLanguage(savedLang);
     })
