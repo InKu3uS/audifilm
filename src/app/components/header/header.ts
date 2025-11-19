@@ -13,6 +13,7 @@ import { I18nPipe } from '../../i18n/i18n.pipe';
 })
 export class Header {
   currentLang = 'en';
+  isMenuOpen = false;
 
   constructor(private readonly i18n: I18nService) {
     this.currentLang = this.i18n.currentLang || 'en';
