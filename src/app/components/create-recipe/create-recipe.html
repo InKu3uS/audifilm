@@ -1,12 +1,14 @@
-<div class="max-w-3xl p-4 flex flex-col mx-auto mt-6">
-  <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-6 text-center">
+<div
+  class="max-w-3xl p-4 flex flex-col mx-auto mt-6 bg-linear-to-br from-orange-50 via-orange-100 to-orange-200 rounded-2xl shadow-lg"
+>
+  <h2 class="text-xl sm:text-2xl md:text-3xl mb-6 text-center font-serif font-bold text-orange-800">
     {{ 'create_recipe.title' | i18n }}
   </h2>
 
   <form
     [formGroup]="form"
     (ngSubmit)="submit()"
-    class="flex flex-col gap-4 bg-gray-100 p-3 rounded-2xl"
+    class="flex flex-col gap-4 bg-white/80 p-6 rounded-2xl"
   >
     <!-- Name Input -->
     <mat-form-field appearance="fill">
@@ -48,16 +50,17 @@
 
     <!-- Ingredients Input -->
     <div>
-      <span class="font-semibold text-sm md:text-lg mb-2 block text-center">{{
-        'create_recipe.ingredients' | i18n
-      }}</span>
+      <span
+        class="font-semibold font-serif text-orange-800 text-sm md:text-lg mb-2 block text-center"
+        >{{ 'create_recipe.ingredients' | i18n }}</span
+      >
       <div formArrayName="ingredients" class="flex flex-col gap-2 mx-auto w-[50%]">
         <div *ngFor="let ing of ingredients.controls; let i = index" class="flex gap-2">
           <input matInput [formControlName]="i" placeholder="Ingredient" class="flex-1" />
           <button
             type="button"
             (click)="removeIngredient(i)"
-            class="bg-red-500 text-white px-2 rounded-full"
+            class="bg-red-500 hover:bg-red-600 text-white px-2 rounded-full shadow-sm transition-all duration-200"
           >
             {{ 'create_recipe.remove_button' | i18n }}
           </button>
@@ -67,7 +70,7 @@
         <button
           type="button"
           (click)="addIngredient()"
-          class="bg-green-600 text-white px-4 py-2 mt-2 hover:bg-green-700 rounded-full"
+          class="bg-green-600 hover:bg-orange-800 text-white px-4 py-2 rounded-full shadow-md transition-all duration-200"
         >
           {{ 'create_recipe.add_ingredient' | i18n }}
         </button>
@@ -76,16 +79,17 @@
 
     <!-- Steps Input -->
     <div>
-      <span class="font-semibold text-sm md:text-lg mb-2 block text-center">{{
-        'create_recipe.steps' | i18n
-      }}</span>
+      <span
+        class="font-semibold font-serif text-orange-800 text-sm md:text-lg mb-2 block text-center"
+        >{{ 'create_recipe.steps' | i18n }}</span
+      >
       <div formArrayName="steps" class="flex flex-col gap-2 mx-auto w-[50%]">
         <div *ngFor="let step of steps.controls; let i = index" class="flex justify-center gap-2">
           <input matInput [formControlName]="i" placeholder="Step" class="flex-1" />
           <button
             type="button"
             (click)="removeStep(i)"
-            class="bg-red-500 text-white px-2 rounded-full"
+            class="bg-red-500 hover:bg-red-600 text-white px-2 rounded-full shadow-sm transition-all duration-200"
           >
             {{ 'create_recipe.remove_button' | i18n }}
           </button>
@@ -95,7 +99,7 @@
         <button
           type="button"
           (click)="addStep()"
-          class="bg-green-600 text-white px-4 py-2 rounded-full mt-2 hover:bg-green-700"
+          class="bg-green-600 hover:bg-orange-800 text-white px-4 py-2 rounded-full shadow-md transition-all duration-200"
         >
           {{ 'create_recipe.add_step' | i18n }}
         </button>
@@ -108,14 +112,13 @@
         ← {{ 'create_recipe.back_button' | i18n }}
       </button>
       <button
-        mat-raised-button
-        color="primary"
+        class="bg-green-600 hover:bg-orange-800 text-white px-4 py-2 rounded-full shadow-md transition-all duration-200"
         type="submit"
         [disabled]="isSubmitting || form.invalid || !form.dirty"
       >
         @if (isSubmitting) {
         <span class="flex items-center gap-2">
-          <mat-icon class="animate-spin">autorenew</mat-icon>
+          <mat-icon class="animate-spin text-white w-5 h-5">autorenew</mat-icon>
           {{ 'create_recipe.creating' | i18n }}
         </span>
         } @else { {{ 'create_recipe.create_recipe' | i18n }} }

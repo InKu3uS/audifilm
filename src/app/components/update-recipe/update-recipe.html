@@ -1,5 +1,7 @@
-<div class="container mx-auto p-4 max-w-2xl">
-  <h1 class="text-3xl font-bold text-center mb-6">
+<div
+  class="max-w-3xl mt-6 p-4 flex flex-col mx-auto bg-linear-to-br from-orange-50 via-orange-100 to-orange-200"
+>
+  <h1 class="text-3xl font-bold text-center mb-6 font-serif text-orange-800">
     {{ 'update_recipe.update' | i18n }} {{ originalRecipe?.name }}
   </h1>
 
@@ -21,138 +23,158 @@
 
   <!-- Edit Form -->
   @if (!isLoading && !error && originalRecipe) {
-  <mat-card class="p-6">
-    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
-      <!-- Error Message -->
-      @if (error) {
-      <div class="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
-        {{ error }}
+  <form class="p-6 bg-white/80 rounded-2xl" [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    <!-- Error Message -->
+    @if (error) {
+    <div class="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+      {{ error }}
+    </div>
+    }
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Recipe Name -->
+      <mat-form-field class="md:col-span-2">
+        <mat-label class="text-orange-700 fond-medium">{{ 'update_recipe.name' | i18n }}</mat-label>
+        <input matInput formControlName="name" placeholder="Enter recipe name" />
+        @if (hasError('name', 'required')) {
+        <mat-error>{{ 'update_recipe.errors.name' | i18n }}</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Category -->
+      <mat-form-field>
+        <mat-label class="text-orange-700 fond-medium">{{
+          'update_recipe.category' | i18n
+        }}</mat-label>
+        <mat-select formControlName="category">
+          <mat-option value="">{{ 'update_recipe.select_category' | i18n }}</mat-option>
+          @for (category of categories; track category) {
+          <mat-option [value]="category">
+            {{ category | titlecase }}
+          </mat-option>
+          }
+        </mat-select>
+        @if (hasError('category', 'required')) {
+        <mat-error>{{ 'update_recipe.errors.category' | i18n }}</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Difficulty -->
+      <mat-form-field>
+        <mat-label class="text-orange-700 fond-medium">{{
+          'update_recipe.difficulty' | i18n
+        }}</mat-label>
+        <mat-select formControlName="difficulty">
+          <mat-option value="">{{ 'update_recipe.select_difficulty' | i18n }}</mat-option>
+          @for (difficulty of difficulties; track difficulty) {
+          <mat-option [value]="difficulty">
+            {{ difficulty | titlecase }}
+          </mat-option>
+          }
+        </mat-select>
+        @if (hasError('difficulty', 'required')) {
+        <mat-error>{{ 'update_recipe.errors.difficulty' | i18n }}</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Duration -->
+      <mat-form-field>
+        <mat-label class="text-orange-700 fond-medium">{{
+          'update_recipe.duration' | i18n
+        }}</mat-label>
+        <input matInput type="number" formControlName="duration" min="1" placeholder="e.g., 30" />
+        @if (hasError('duration', 'required')) {
+        <mat-error>{{ 'update_recipe.errors.duration_required' | i18n }}</mat-error>
+        } @if (hasError('duration', 'min')) {
+        <mat-error>{{ 'update_recipe.errors.duration_min' | i18n }}</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Image URL -->
+      <mat-form-field class="md:col-span-2">
+        <mat-label class="text-orange-700 fond-medium">{{
+          'update_recipe.imageUrl' | i18n
+        }}</mat-label>
+        <input matInput formControlName="imageUrl" placeholder="https://example.com/image.jpg" />
+        @if (hasError('imageUrl', 'required')) {
+        <mat-error>{{ 'update_recipe.errors.imageUrl' | i18n }}</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Ingredients -->
+      <mat-form-field class="md:col-span-2">
+        <mat-label class="text-orange-700 fond-medium">{{
+          'update_recipe.ingredients' | i18n
+        }}</mat-label>
+        <textarea
+          matInput
+          formControlName="ingredients"
+          rows="3"
+          placeholder="{{ 'update_recipe.ingredients_placeholder' | i18n }}"
+        >
+        </textarea>
+        @if (hasError('ingredients', 'required')) {
+        <mat-error>{{ 'update_recipe.errors.ingredients' | i18n }}</mat-error>
+        }
+        <mat-hint class="font-medium">{{ 'update_recipe.ingredients_info' | i18n }}</mat-hint>
+      </mat-form-field>
+
+      <!-- Steps -->
+      <mat-form-field class="md:col-span-2">
+        <mat-label class="text-orange-700 fond-medium">{{
+          'update_recipe.steps' | i18n
+        }}</mat-label>
+        <textarea
+          matInput
+          formControlName="steps"
+          rows="4"
+          placeholder="Enter cooking steps separated by periods (e.g., Preheat oven. Mix ingredients. Bake for 30 minutes.)"
+        >
+        </textarea>
+        @if (hasError('steps', 'required')) {
+        <mat-error>{{ 'update_recipe.errors.steps' | i18n }}</mat-error>
+        }
+        <mat-hint class="font-medium">{{ 'update_recipe.steps_info' | i18n }}</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <!-- Form Actions -->
+    <div class="flex justify-between gap-3 mt-6">
+      <div>
+        <button
+          class="bg-white text-orange-600 border border-orange-500 rounded-full px-4 py-2 shadow-md hover:bg-orange-200 hover:font-medium transition-all"
+          type="button"
+          (click)="resetForm()"
+          [disabled]="isSubmitting"
+        >
+          {{ 'update_recipe.reset_button' | i18n }}
+        </button>
       </div>
-      }
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- Recipe Name -->
-        <mat-form-field class="md:col-span-2">
-          <mat-label>{{ 'update_recipe.name' | i18n }}</mat-label>
-          <input matInput formControlName="name" placeholder="Enter recipe name" />
-          @if (hasError('name', 'required')) {
-          <mat-error>{{ 'update_recipe.errors.name' | i18n }}</mat-error>
-          }
-        </mat-form-field>
-
-        <!-- Category -->
-        <mat-form-field>
-          <mat-label>{{ 'update_recipe.category' | i18n }}</mat-label>
-          <mat-select formControlName="category">
-            <mat-option value="">{{ 'update_recipe.select_category' | i18n }}</mat-option>
-            @for (category of categories; track category) {
-            <mat-option [value]="category">
-              {{ category | titlecase }}
-            </mat-option>
-            }
-          </mat-select>
-          @if (hasError('category', 'required')) {
-          <mat-error>{{ 'update_recipe.errors.category' | i18n }}</mat-error>
-          }
-        </mat-form-field>
-
-        <!-- Difficulty -->
-        <mat-form-field>
-          <mat-label>{{ 'update_recipe.difficulty' | i18n }}</mat-label>
-          <mat-select formControlName="difficulty">
-            <mat-option value="">{{ 'update_recipe.select_difficulty' | i18n }}</mat-option>
-            @for (difficulty of difficulties; track difficulty) {
-            <mat-option [value]="difficulty">
-              {{ difficulty | titlecase }}
-            </mat-option>
-            }
-          </mat-select>
-          @if (hasError('difficulty', 'required')) {
-          <mat-error>{{ 'update_recipe.errors.difficulty' | i18n }}</mat-error>
-          }
-        </mat-form-field>
-
-        <!-- Duration -->
-        <mat-form-field>
-          <mat-label>{{ 'update_recipe.duration' | i18n }}</mat-label>
-          <input matInput type="number" formControlName="duration" min="1" placeholder="e.g., 30" />
-          @if (hasError('duration', 'required')) {
-          <mat-error>{{ 'update_recipe.errors.duration_required' | i18n }}</mat-error>
-          } @if (hasError('duration', 'min')) {
-          <mat-error>{{ 'update_recipe.errors.duration_min' | i18n }}</mat-error>
-          }
-        </mat-form-field>
-
-        <!-- Image URL -->
-        <mat-form-field class="md:col-span-2">
-          <mat-label>{{ 'update_recipe.imageUrl' | i18n }}</mat-label>
-          <input matInput formControlName="imageUrl" placeholder="https://example.com/image.jpg" />
-          @if (hasError('imageUrl', 'required')) {
-          <mat-error>{{ 'update_recipe.errors.imageUrl' | i18n }}</mat-error>
-          }
-        </mat-form-field>
-
-        <!-- Ingredients -->
-        <mat-form-field class="md:col-span-2">
-          <mat-label>{{ 'update_recipe.ingredients' | i18n }}</mat-label>
-          <textarea
-            matInput
-            formControlName="ingredients"
-            rows="3"
-            placeholder="{{ 'update_recipe.ingredients_placeholder' | i18n }}"
-          >
-          </textarea>
-          @if (hasError('ingredients', 'required')) {
-          <mat-error>{{ 'update_recipe.errors.ingredients' | i18n }}</mat-error>
-          }
-          <mat-hint>{{ 'update_recipe.ingredients_info' | i18n }}</mat-hint>
-        </mat-form-field>
-
-        <!-- Steps -->
-        <mat-form-field class="md:col-span-2">
-          <mat-label>{{ 'update_recipe.steps' | i18n }}</mat-label>
-          <textarea
-            matInput
-            formControlName="steps"
-            rows="4"
-            placeholder="Enter cooking steps separated by periods (e.g., Preheat oven. Mix ingredients. Bake for 30 minutes.)"
-          >
-          </textarea>
-          @if (hasError('steps', 'required')) {
-          <mat-error>{{ 'update_recipe.errors.steps' | i18n }}</mat-error>
-          }
-          <mat-hint>{{ 'update_recipe.steps_info' | i18n }}</mat-hint>
-        </mat-form-field>
+      <div class="flex gap-3">
+        <button
+          class="bg-white text-orange-600 border border-orange-500 rounded-full px-4 py-2 shadow-md hover:bg-orange-200 hover:font-medium transition-all"
+          type="button"
+          (click)="onCancel()"
+          [disabled]="isSubmitting"
+        >
+          {{ 'update_recipe.cancel_button' | i18n }}
+        </button>
+        <button
+          class="bg-green-600 hover:bg-orange-800 hover:font-medium text-white px-4 py-2 rounded-full shadow-md transition-all duration-200"
+          color="primary"
+          type="submit"
+          [disabled]="isSubmitting || recipeForm.invalid || !recipeForm.dirty"
+        >
+          @if (isSubmitting) {
+          <span class="flex items-center gap-2">
+            <mat-icon class="animate-spin text-white w-5 h-5">autorenew</mat-icon>
+            {{ 'update_recipe.updating' | i18n }}
+          </span>
+          } @else { {{ 'update_recipe.update_button' | i18n }} }
+        </button>
       </div>
-
-      <!-- Form Actions -->
-      <div class="flex justify-between gap-3 mt-6">
-        <div>
-          <button mat-stroked-button type="button" (click)="resetForm()" [disabled]="isSubmitting">
-            {{ 'update_recipe.reset_button' | i18n }}
-          </button>
-        </div>
-
-        <div class="flex gap-3">
-          <button mat-stroked-button type="button" (click)="onCancel()" [disabled]="isSubmitting">
-            {{ 'update_recipe.cancel_button' | i18n }}
-          </button>
-          <button
-            mat-raised-button
-            color="primary"
-            type="submit"
-            [disabled]="isSubmitting || recipeForm.invalid || !recipeForm.dirty"
-          >
-            @if (isSubmitting) {
-            <span class="flex items-center gap-2">
-              <mat-icon class="animate-spin">autorenew</mat-icon>
-              {{ 'update_recipe.updating' | i18n }}
-            </span>
-            } @else { {{ 'update_recipe.update_button' | i18n }} }
-          </button>
-        </div>
-      </div>
-    </form>
-  </mat-card>
+    </div>
+  </form>
   }
 </div>
