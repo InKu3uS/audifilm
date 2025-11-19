@@ -85,5 +85,16 @@
     "update_button": "Bearbeiten",
     "delete_button": "Löschen",
     "back_button": "Zurück"
+  },
+  "swal": {
+    "yes": "Ja",
+    "no": "Nein",
+    "sure": "Bist du sicher?",
+    "success": "Erfolg",
+    "recipe_deleted": "Rezept {{name}} erfolgreich gelöscht",
+    "recipe_updated": "Rezept {{name}} erfolgreich aktualisiert",
+    "confirm_cancel_update": "Wenn du abbrichst, gehen alle Änderungen verloren.",
+    "confirm_delete_recipe": "Das Rezept wird dauerhaft gelöscht.",
+    "fill_fields": "Bitte fülle alle Felder aus."
   }
 }

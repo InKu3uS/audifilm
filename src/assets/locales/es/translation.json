@@ -85,5 +85,16 @@
     "update_button": "Editar",
     "delete_button": "Borrar",
     "back_button": "Volver"
+  },
+  "swal": {
+    "yes": "Si",
+    "no": "No",
+    "sure": "¿Estas seguro?",
+    "success": "Exito",
+    "recipe_deleted": "Receta {{name}} eliminada con éxito",
+    "recipe_updated": "Receta {{name}} actualizada éxito",
+    "confirm_cancel_update": "Si cancelas se perderán todos los cambios.",
+    "confirm_delete_recipe": "La receta se borrará permanentemente.",
+    "fill_fields": "Por favor, rellene todos los campos."
   }
 }

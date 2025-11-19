@@ -54,21 +54,23 @@ export class RecipeDetail implements OnInit {
 
   // Delete this recipe
   deleteRecipe() {
-    this.alertService
-      .confirm(`Are you sure you want to delete ${this.recipe?.name} recipe`)
-      .then((confirmed) => {
-        if (!confirmed) return;
+    const question = this.i18n.t('swal.sure') as string;
+    const message = this.i18n.t('swal.confirm_delete_recipe') as string;
+    this.alertService.confirm(question, message).then((confirmed) => {
+      if (!confirmed) return;
 
-        this.service.deleteRecipe(this.recipeId).subscribe({
-          next: () => {
-            this.alertService.success(`Recipe ${this.recipe?.name} deleted`);
-            this.router.navigate(['']);
-          },
-          error: (err) => {
-            this.alertService.error(err.message);
-          },
-        });
+      this.service.deleteRecipe(this.recipeId).subscribe({
+        next: () => {
+          //Dinamic translation with parameter
+          const message = this.i18n.t('swal.recipe_deleted', { name: this.recipe?.name }) as string;
+          this.alertService.success(message);
+          this.router.navigate(['']);
+        },
+        error: (err) => {
+          this.alertService.error(err.message);
+        },
       });
+    });
   }
 
   // Get the translation of the category name received as parameter

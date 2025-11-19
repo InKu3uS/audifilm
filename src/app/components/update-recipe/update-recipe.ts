@@ -129,7 +129,9 @@ export class UpdateRecipe implements OnInit {
       this.service.updateRecipe(this.recipeId, updatedRecipe).subscribe({
         next: (recipe) => {
           this.isSubmitting = false;
-          this.alertService.success(`Recipe ${recipe.name} updated successfully`);
+          //Dinamic translation with parameter
+          const message = this.i18n.t('swal.recipe_updated', { name: recipe.name }) as string;
+          this.alertService.success(message);
           this.router.navigate(['/recipe', this.recipeId]);
         },
         error: (err) => {
@@ -156,12 +158,12 @@ export class UpdateRecipe implements OnInit {
 
   // On cancel update
   onCancel(): void {
-    this.alertService
-      .confirm('Are you sure you want to cancel? All unsaved changes will be lost.')
-      .then((confirmed) => {
-        if (!confirmed) return;
-        this.router.navigate(['/recipe', this.recipeId]);
-      });
+    const question = this.i18n.t('swal.sure') as string;
+    const message = this.i18n.t('swal.confirm_cancel_update') as string;
+    this.alertService.confirm(question, message).then((confirmed) => {
+      if (!confirmed) return;
+      this.router.navigate(['/recipe', this.recipeId]);
+    });
   }
 
   // Reset form to original values

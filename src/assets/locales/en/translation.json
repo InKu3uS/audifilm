@@ -85,5 +85,16 @@
     "update_button": "Edit",
     "delete_button": "Delete",
     "back_button": "Back"
+  },
+  "swal": {
+    "yes": "Yes",
+    "no": "No",
+    "sure": "Are you sure?",
+    "success": "Success",
+    "recipe_deleted": "Recipe {{name}} deleted successfully",
+    "recipe_updated": "Recipe {{name}} updated successfully",
+    "confirm_cancel_update": "If you cancel, all changes will be lost.",
+    "confirm_delete_recipe": "The recipe will be permanently deleted.",
+    "fill_fields": "Please fill in all fields."
   }
 }

@@ -93,7 +93,8 @@ export class CreateRecipe {
   submit() {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
-      this.alertService.info('Please fill in all fields');
+      const message = this.i18n.t('swal.fill_fields') as string;
+      this.alertService.info(message);
       return;
     }
 
