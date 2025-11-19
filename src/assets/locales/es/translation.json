@@ -20,5 +20,70 @@
     "duration": "Duración",
     "no_recipes": "No hay recetas en la lista",
     "button_view": "Ver receta"
+  },
+  "update_recipe": {
+    "update": "Editar",
+    "name": "Nombre de la receta",
+    "category": "Categoría",
+    "select_category": "Selecciona categoría",
+    "difficulty": "Dificultad",
+    "select_difficulty": "Selecciona la dificultad",
+    "duration": "Duración (minutos)",
+    "imageUrl": "URL de la imagen",
+    "ingredients": "Ingredientes",
+    "ingredients_placeholder": "Inserta los ingredientes separados por comas (Ej: harina, azucar, huevos)",
+    "ingredients_info": "Separa los ingredientes con comas",
+    "steps": "Pasos",
+    "steps_info": "Separa los ingredientes con comas",
+    "back_button": "Volver",
+    "reset_button": "Resetear",
+    "cancel_button": "Cancelar",
+    "update_button": "Actualizar receta",
+    "updating": "Actualizando receta",
+    "errors": {
+      "loading": "Error al cargar la receta",
+      "name": "El nombre de la receta es requerido",
+      "category": "La categoría es requerida",
+      "duration_required": "La duración es requerida",
+      "duration_min": "La duración debe ser al menos de 1 minuto",
+      "imageUrl": "La URL de la imagen es requerida",
+      "ingredients": "Los ingredientes son requeridos",
+      "steps": "Los pasos son requeridos"
+    }
+  },
+  "create_recipe": {
+    "title": "Crear nueva receta",
+    "name": "Nombre de la receta",
+    "imageUrl": "URL de la imagen",
+    "category": "Categoría",
+    "difficulty": "Dificultad",
+    "duration": "Duración (minutos)",
+    "ingredients": "Ingredientes",
+    "steps": "Pasos",
+    "add_ingredient": "Añadir ingrediente",
+    "remove_button": "Borrar",
+    "add_step": "Añadir paso",
+    "back_button": "Volver",
+    "creating": "Creando receta",
+    "create_recipe": "Crear receta"
+  },
+  "recipe": {
+    "difficulty": "Dificultad:",
+    "duration": "Duración:",
+    "ingredients": "Ingredientes:",
+    "steps": "Pasos:",
+    "category": {
+      "starter": "Entrante",
+      "main": "Plato principal",
+      "dessert": "Postre"
+    },
+    "difficulties": {
+      "easy": "Facil",
+      "medium": "Media",
+      "hard": "Dificil"
+    },
+    "update_button": "Editar",
+    "delete_button": "Borrar",
+    "back_button": "Volver"
   }
 }

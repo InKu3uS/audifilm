@@ -10,14 +10,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { AlertService } from '../../utils/alert.service';
 
+import { I18nService } from '../../i18n/i18n.service';
+import { I18nPipe } from '../../i18n/i18n.pipe';
+
 @Component({
   selector: 'app-recipe-detail',
-  imports: [CommonModule, RouterModule, RecipeTimePipe, MatButtonModule, MatCardModule],
+  imports: [CommonModule, RouterModule, RecipeTimePipe, MatButtonModule, MatCardModule, I18nPipe],
   templateUrl: './recipe-detail.html',
 })
 export class RecipeDetail implements OnInit {
   private readonly service = inject(RecipeService);
   private readonly alertService = inject(AlertService);
+  private readonly i18n = inject(I18nService);
   private readonly route = inject(ActivatedRoute);
 
   constructor(private readonly router: Router) {}
@@ -62,5 +66,13 @@ export class RecipeDetail implements OnInit {
           },
         });
       });
+  }
+
+  getCategoryTranslation(key: string): string {
+    return this.i18n.t(`recipe.category.${key}`) as string;
+  }
+
+  getDifficultyTranslation(key: string): string {
+    return this.i18n.t(`recipe.difficulties.${key}`) as string;
   }
 }

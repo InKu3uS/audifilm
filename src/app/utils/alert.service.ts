@@ -40,7 +40,7 @@ export class AlertService {
   //Show a info alert
   info(message: string) {
     return Swal.fire({
-      icon: 'info',
+      icon: 'warning',
       title: 'Info',
       text: message,
       confirmButtonText: 'OK',

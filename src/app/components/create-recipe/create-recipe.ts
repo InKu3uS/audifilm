@@ -12,9 +12,13 @@ import { Router, RouterLink } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { RecipeService } from '../../services/recipes';
 import { AlertService } from '../../utils/alert.service';
+
+import { I18nService } from '../../i18n/i18n.service';
+import { I18nPipe } from '../../i18n/i18n.pipe';
 
 @Component({
   selector: 'create-recipe',
@@ -28,16 +32,20 @@ import { AlertService } from '../../utils/alert.service';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
+    MatIconModule,
+    I18nPipe,
   ],
   templateUrl: './create-recipe.html',
 })
 export class CreateRecipe {
   private readonly service = inject(RecipeService);
   private readonly alertService = inject(AlertService);
+  private readonly i18n = inject(I18nService);
 
   categories = ['starter', 'main', 'dessert'];
   difficulties = ['easy', 'medium', 'hard'];
   form: FormGroup;
+  isSubmitting = false;
 
   constructor(private fb: FormBuilder, private router: Router) {
     // Inicializamos el formulario dentro del constructor
@@ -89,13 +97,19 @@ export class CreateRecipe {
       return;
     }
 
+    if (this.isSubmitting) return;
+
+    this.isSubmitting = true;
+
     const newRecipeData = this.form.value;
 
     this.service.addRecipe(newRecipeData).subscribe({
-      next: (recipe) => {
+      next: () => {
+        this.isSubmitting = false;
         this.router.navigate(['']);
       },
       error: (err) => {
+        this.isSubmitting = false;
         this.alertService.error(err.message);
       },
     });

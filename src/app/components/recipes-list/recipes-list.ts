@@ -55,7 +55,6 @@ export class RecipesList implements OnInit {
         this.error = err.message;
         this.isLoading = false;
         this.recipes = [];
-        console.error('Error loading recipes:', err);
       },
     });
   }

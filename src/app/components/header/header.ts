@@ -14,10 +14,11 @@ import { I18nPipe } from '../../i18n/i18n.pipe';
 export class Header {
   currentLang = 'en';
 
-  constructor(private i18n: I18nService) {
+  constructor(private readonly i18n: I18nService) {
     this.currentLang = this.i18n.currentLang || 'en';
   }
 
+  // Change language when select an idiom on header
   changeLanguage(event: Event) {
     const lang = (event.target as HTMLSelectElement).value;
     this.currentLang = lang;

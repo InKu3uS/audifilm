@@ -14,6 +14,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { AlertService } from '../../utils/alert.service';
 
+import { I18nService } from '../../i18n/i18n.service';
+import { I18nPipe } from '../../i18n/i18n.pipe';
+
 @Component({
   selector: 'update-recipe',
   imports: [
@@ -26,6 +29,7 @@ import { AlertService } from '../../utils/alert.service';
     MatInputModule,
     MatSelectModule,
     MatIconModule,
+    I18nPipe,
   ],
   templateUrl: './update-recipe.html',
 })
@@ -33,6 +37,7 @@ export class UpdateRecipe implements OnInit {
   private readonly fb = inject(FormBuilder);
   private readonly service = inject(RecipeService);
   private readonly alertService = inject(AlertService);
+  private readonly i18n = inject(I18nService);
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
 
@@ -57,10 +62,10 @@ export class UpdateRecipe implements OnInit {
       name: [recipe.name, [Validators.required]],
       category: [recipe.category, Validators.required],
       difficulty: [recipe.difficulty, Validators.required],
-      duration: [recipe.duration, [Validators.required]],
+      duration: [recipe.duration, [Validators.required, Validators.minLength(1)]],
       imageUrl: [recipe.imageUrl, [Validators.required]],
       ingredients: [recipe.ingredients.join(', '), [Validators.required]],
-      steps: [recipe.steps.join('. '), [Validators.required]],
+      steps: [recipe.steps.join(', '), [Validators.required]],
     });
   }
 
@@ -111,7 +116,7 @@ export class UpdateRecipe implements OnInit {
           .map((item: string) => item.trim())
           .filter(Boolean),
         steps: formValue.steps
-          .split('.')
+          .split(',')
           .map((step: string) => step.trim())
           .filter(Boolean),
       };
@@ -125,7 +130,6 @@ export class UpdateRecipe implements OnInit {
         error: (err) => {
           this.isSubmitting = false;
           this.error = err.message;
-          console.log('Error updating recipe: ', err);
         },
       });
     } else {

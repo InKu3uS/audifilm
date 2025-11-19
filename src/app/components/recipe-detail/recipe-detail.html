@@ -11,24 +11,24 @@
         <img src="{{ recipe.imageUrl }}" alt="{{ recipe.name }}" />
       </div>
       <mat-card-title>{{ recipe.name }}</mat-card-title>
-      <mat-card-subtitle>{{ recipe.category }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ getCategoryTranslation(recipe.category) }}</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="{{ recipe.imageUrl }}" alt="{{ recipe.name }}" />
     <mat-card-content>
       <div class="mb-4 mt-2">
-        <p class="font-semibold">Difficulty:</p>
-        <p>{{ recipe.difficulty }}</p>
+        <p class="font-semibold">{{ 'recipe.difficulty' | i18n }}</p>
+        <p>{{ getDifficultyTranslation(recipe.difficulty) }}</p>
       </div>
 
       <div>
-        <p class="font-semibold">Duration:</p>
+        <p class="font-semibold">{{ 'recipe.duration' | i18n }}</p>
         <p>{{ recipe.duration | recipeTime }}</p>
       </div>
 
       <hr class="flex justify-center text-gray-400 my-2" />
 
       <div>
-        <p class="font-semibold">Ingredients:</p>
+        <p class="font-semibold">{{ 'recipe.ingredients' | i18n }}</p>
         <p class="mb-4 text-center">
           {{ recipe.ingredients.join(', ') }}
         </p>
@@ -37,7 +37,7 @@
       <hr class="flex justify-center text-gray-400 my-2" />
 
       <div>
-        <p class="font-semibold">Steps:</p>
+        <p class="font-semibold">{{ 'recipe.steps' | i18n }}</p>
         <ul class="list-disc list-inside mb-4">
           @for (item of recipe.steps; track $index) {
           <li>{{ item }}</li>
@@ -46,13 +46,17 @@
       </div>
     </mat-card-content>
     <mat-card-actions class="mx-auto">
-      <button matButton routerLink="/update/{{ recipe.id }}">Update</button>
-      <button matButton (click)="deleteRecipe()">Delete</button>
+      <button matButton routerLink="/update/{{ recipe.id }}">
+        {{ 'recipe.update_button' | i18n }}
+      </button>
+      <button matButton (click)="deleteRecipe()">{{ 'recipe.delete_button' | i18n }}</button>
     </mat-card-actions>
   </mat-card>
 </div>
 }
 
 <div class="flex justify-center px-4 mt-4">
-  <button mat-stroked-button color="primary" routerLink="">← Back</button>
+  <button mat-stroked-button color="primary" routerLink="">
+    ← {{ 'recipe.back_button' | i18n }}
+  </button>
 </div>

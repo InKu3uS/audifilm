@@ -20,5 +20,70 @@
     "duration": "Dauer",
     "no_recipes": "Keine Rezepte in der Liste",
     "button_view": "Rezept ansehen"
+  },
+  "update_recipe": {
+    "update": "Bearbeiten",
+    "name": "Rezeptname",
+    "category": "Kategorie",
+    "select_category": "Kategorie auswählen",
+    "difficulty": "Schwierigkeit",
+    "select_difficulty": "Schwierigkeit auswählen",
+    "duration": "Dauer (Minuten)",
+    "imageUrl": "Bild-URL",
+    "ingredients": "Zutaten",
+    "ingredients_placeholder": "Zutaten durch Kommas trennen (z. B.: Mehl, Zucker, Eier)",
+    "ingredients_info": "Trenne die Zutaten mit Kommas",
+    "steps": "Schritte",
+    "steps_info": "Trenne die Schritte mit Kommas",
+    "back_button": "Zurück",
+    "reset_button": "Zurücksetzen",
+    "cancel_button": "Abbrechen",
+    "update_button": "Rezept aktualisieren",
+    "updating": "Rezept wird aktualisiert",
+    "errors": {
+      "loading": "Fehler beim Laden des Rezepts",
+      "name": "Der Rezeptname ist erforderlich",
+      "category": "Die Kategorie ist erforderlich",
+      "duration_required": "Die Dauer ist erforderlich",
+      "duration_min": "Die Dauer muss mindestens 1 Minute betragen",
+      "imageUrl": "Die Bild-URL ist erforderlich",
+      "ingredients": "Die Zutaten sind erforderlich",
+      "steps": "Die Schritte sind erforderlich"
+    }
+  },
+  "create_recipe": {
+    "title": "Neue Rezept erstellen",
+    "name": "Rezeptname",
+    "imageUrl": "Bild-URL",
+    "category": "Kategorie",
+    "difficulty": "Schwierigkeit",
+    "duration": "Dauer (Minuten)",
+    "ingredients": "Zutaten",
+    "steps": "Schritte",
+    "add_ingredient": "Zutat hinzufügen",
+    "remove_button": "Löschen",
+    "add_step": "Schritt hinzufügen",
+    "back_button": "Zurück",
+    "creating": "Rezept wird erstellt",
+    "create_recipe": "Rezept erstellen"
+  },
+  "recipe": {
+    "difficulty": "Schwierigkeit:",
+    "duration": "Dauer:",
+    "ingredients": "Zutaten:",
+    "steps": "Schritte:",
+    "category": {
+      "starter": "Vorspeise",
+      "main": "Hauptgericht",
+      "dessert": "Nachtisch"
+    },
+    "difficulties": {
+      "easy": "Einfach",
+      "medium": "Mittel",
+      "hard": "Schwierig"
+    },
+    "update_button": "Bearbeiten",
+    "delete_button": "Löschen",
+    "back_button": "Zurück"
   }
 }

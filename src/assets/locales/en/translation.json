@@ -20,5 +20,70 @@
     "duration": "Duration",
     "no_recipes": "No recipes in the list",
     "button_view": "View recipe"
+  },
+  "update_recipe": {
+    "update": "Edit",
+    "name": "Recipe name",
+    "category": "Category",
+    "select_category": "Select category",
+    "difficulty": "Difficulty",
+    "select_difficulty": "Select difficulty",
+    "duration": "Duration (minutes)",
+    "imageUrl": "Image URL",
+    "ingredients": "Ingredients",
+    "ingredients_placeholder": "Enter the ingredients separated by commas (e.g., flour, sugar, eggs)",
+    "ingredients_info": "Separate the ingredients with commas",
+    "steps": "Steps",
+    "steps_info": "Separate the steps with commas",
+    "back_button": "Back",
+    "reset_button": "Reset",
+    "cancel_button": "Cancel",
+    "update_button": "Update recipe",
+    "updating": "Updating recipe",
+    "errors": {
+      "loading": "Error loading the recipe",
+      "name": "Recipe name is required",
+      "category": "Category is required",
+      "duration_required": "Duration is required",
+      "duration_min": "Duration must be at least 1 minute",
+      "imageUrl": "Image URL is required",
+      "ingredients": "Ingredients are required",
+      "steps": "Steps are required"
+    }
+  },
+  "create_recipe": {
+    "title": "Create new recipe",
+    "name": "Recipe name",
+    "imageUrl": "Image URL",
+    "category": "Category",
+    "difficulty": "Difficulty",
+    "duration": "Duration (minutes)",
+    "ingredients": "Ingredients",
+    "steps": "Steps",
+    "add_ingredient": "Add ingredient",
+    "remove_button": "Delete",
+    "add_step": "Add step",
+    "back_button": "Back",
+    "creating": "Creating recipe",
+    "create_recipe": "Create recipe"
+  },
+  "recipe": {
+    "difficulty": "Difficulty:",
+    "duration": "Duration:",
+    "ingredients": "Ingredients:",
+    "steps": "Steps:",
+    "category": {
+      "starter": "Starter",
+      "main": "Main course",
+      "dessert": "Dessert"
+    },
+    "difficulties": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "update_button": "Edit",
+    "delete_button": "Delete",
+    "back_button": "Back"
   }
 }

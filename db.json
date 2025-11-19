@@ -42,8 +42,10 @@
     {
       "id": "4",
       "name": "Pancakes",
+      "category": "dessert",
+      "difficulty": "easy",
+      "duration": 15,
       "imageUrl": "https://w7.pngwing.com/pngs/572/125/png-transparent-pancake-with-honey-syrup-juice-pancake-breakfast-buffet-waffle-pancakes-food-breakfast-recipe.png",
-      "category": "Dessert",
       "ingredients": [
         "Flour",
         "Milk",
@@ -55,9 +57,7 @@
         "Mix ingredients",
         "Cook in a pan",
         "Serve with syrup"
-      ],
-      "difficulty": "Easy",
-      "duration": 15
+      ]
     },
     {
       "id": "5",
